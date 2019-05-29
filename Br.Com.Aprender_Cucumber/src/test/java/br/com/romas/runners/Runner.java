@@ -1,3 +1,4 @@
+package br.com.romas.runners;
 import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
@@ -5,7 +6,12 @@ import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = "pretty",
+@CucumberOptions(
+				features = "src/test/resources/features/aprender_cucumber.feature",
+				glue = "br.com.romas.steps",
+				plugin = "pretty",
+				tags = "~@ignore",
+//						tags = "~@ignore",
 				 monochrome = true, 
 				 snippets = SnippetType.CAMELCASE,
 				 dryRun =  false, 

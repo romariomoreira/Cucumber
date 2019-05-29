@@ -1,3 +1,4 @@
+package br.com.romas.steps;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -6,12 +7,15 @@ import java.util.Date;
 
 import org.junit.Assert;
 
+import br.com.romas.converters.DateConverter;
 import cucumber.api.PendingException;
+import cucumber.api.Transform;
+import cucumber.api.Transformer;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Ent„o;
 import cucumber.api.java.pt.Quando;
 
-public class Aprender_Cucumber {
+public class AprenderCucumberSteps {
 
 	@Dado("^que criei o arquivo corretamente$")
 	public void queCrieiOArquivoCorretamente() throws Throwable {
@@ -50,13 +54,10 @@ public class Aprender_Cucumber {
 
 	Date entrega = new Date();
 
-	@Dado("^que a entrega È dia (\\d+)/(\\d+)/(\\d+)$")
-	public void que_a_entrega_È_dia(int dia, int mes, int ano) throws Throwable {
-		Calendar cal = Calendar.getInstance();
-		cal.set(Calendar.DAY_OF_MONTH, dia);
-		cal.set(Calendar.MONTH, mes - 1);
-		cal.set(Calendar.YEAR, ano);
-		entrega = cal.getTime();
+	@Dado("^que a entrega È dia (.*)$")
+	public void que_a_entrega_È_dia(@Transform(DateConverter.class)  Date data ) throws Throwable {
+			entrega = data; 
+		//System.out.println(entrega);
 
 	}
 
@@ -86,8 +87,8 @@ public class Aprender_Cucumber {
 	    
 	}
 
-	@Dado("^que o valor da passagem È R\\$ (\\d+),(\\d+)$")
-	public void queOValorDaPassagem…R$(int arg1, int arg2) throws Throwable {
+	@Dado("^que o valor da passagem È R\\$ (.*)$")
+	public void queOValorDaPassagem…R$(Double numero) throws Throwable {
 	    
 	}
 
@@ -108,8 +109,7 @@ public class Aprender_Cucumber {
 
 	@Ent„o("^o teste vai funcionar$")
 	public void oTesteVaiFuncionar() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	  
 	}
 	
 	
