@@ -7,7 +7,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-				features = "src/test/resources/features/aprender_cucumber.feature",
+				features = "src/test/resources/features/alugar_filmes.feature",
+//						features = "src/test/resources/features/aprender_cucumber.feature",
 				glue = "br.com.romas.steps",
 				plugin = "pretty",
 				tags = "~@ignore",
