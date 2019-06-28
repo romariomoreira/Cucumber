@@ -11,13 +11,16 @@ public class Filme {
 
 	public void setAluguel(int arg1) {
 		this.aluguel = arg1;
-		
 	}
-
-
 
 	public int getAluguel() {
 		return aluguel;
 	}
+
+	public int getEstoque() {
+		// TODO Auto-generated method stub
+		return estoque;
+	}
+
 
 }
